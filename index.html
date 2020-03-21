@@ -1,8 +1,237 @@
-<p>Hello 大家好</p>
-<p>我是霸都丶傲天，这是我的个人网站。 </p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
+<！DOCTYPE html PUBLIC“-// W3C // DTD XHTML 1.0 Strict // EN”“ http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd” >
+< html  xml：lang =“ en ” xmlns =“ http://www.w3.org/1999/xhtml ” >
+< 头>
+    < meta  http-equiv =“ Content-Type ” content =“ text / html; charset = UTF-8 ” >
+    < title >我们的故事</ title >
 
-<ul>
-  <li> <a href="https://www.zhihu.com/people/AJLoveChina">知乎</a> </li>
-  <li> <a href="http://hejie.nigeerhuo.com">我的博客(已经不更细了,现在在知乎写文章)</a> </li>
-</ul>
+    < 链接 类型 =“ text / css ” rel =“ 样式表 ” href =“ ./index_files/default.css ” >
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jquery.min.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jscex.min.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jscex-parser.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jscex-jit.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jscex-builderbase.min.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jscex-async.min.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/jscex-async-powerpack.min.js ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/functions.js ” charset =“ utf-8 ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./index_files/love.js ” charset =“ utf-8 ” > </ 脚本>
+    < 脚本 类型 =“ text / javascript ” src =“ ./config.js ” > </ 脚本>
+    < style  type =“ text / css ” >
+        <！- -
+        。样式1 {
+            颜色：＃ 666666
+        }
+
+        - >
+    </ style >
+</ head >
+< 身体>
+
+< img  src =“ https://ajlovechina.github.io/loveBalloon/static/music.png ” 样式 =“ 位置：固定； z-index：10001; top：10px; right：10px; ” onclick =“ 让m = document.querySelector（'。song-audio-autoplay'）; if（m.paused）{m.play（）; this.className ='rotateImages'} else {m.pause（）; this.className ='' } “ >
+< audio  class =“ song-audio-autoplay ” 控制 循环 风格 =“ display：none;可见性：隐藏 ” >
+    < source  src =“ ./index_files/music.mp3 ” type =“ audio / mp3 ” />
+</ 音频>
+< style  type =“ text / css ” >
+    。rotationImages {
+        -webkit-animation：myRotate 10 s线性无限；
+        动画：myRotate 10 s线性无限；
+    }
+    @ -webkit-keyframes myRotate {
+        0 ％ {- webkit-transform：旋转（0 度）;}
+        50 ％ {- webkit-transform：旋转（180 度）;}
+        100 ％ {- webkit-transform：旋转（360 度）;}
+    }
+    @keyframes myRotate {
+        0 ％ {- webkit-transform：旋转（0 度）;}
+        50 ％ {- webkit-transform：旋转（180 度）;}
+        100 ％ {- webkit-transform：旋转（360 度）;}
+    }
+</ style >
+
+< div  id =“ main ” >
+    < DIV  ID = “ 错误 ” >本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌（< 一
+            href =“ http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI ” >铬</ a >）或者火狐（< a
+            href =“ http://firefox.com.cn/download/ ” > Firefox </ a >）浏览器，或者其他游览器的最新版本。
+    </ div >
+    < div  id =“ wrap ” >
+        < div  id =“ text ” >
+            < div  id =“ code ” >
+            </ div >
+        </ div >
+        < div  id =“ Clock-box ” >
+                    < span  id =“ Clock-box-inside-text ” >
+					</ span >
+            < div  id =“ clock ” > </ div >
+        </ div >
+        < canvas  id =“ canvas ” width =“ 1100 ” height =“ 680 ” > </ canvas >
+    </ div >
+
+</ div >
+
+< 脚本 类型 =“ text / javascript ” >
+    $ （'#code' ）。html （配置。行。地图（item  =>  {
+        返回 `<span class =“ say”> $ { item } </ span> <br>
+						<span class =“ say”> </ span> <br>`
+    } ）。减少（（a ， b ） =>  {
+        返回 a  +  b ;
+    } ））
+    $ （“＃clock-box-inside-text” ）。HTML （` $ { 配置。名[ 0 ] } <跨度类= “STYLE1”>与</跨度> $ { 配置。名[ 1 ] } <跨度类= “STYLE1”>已经相恋了</跨度> ` ）
+</ 脚本>
+
+< 脚本>
+    （函数 （） {
+        var  canvas  =  $ （'#canvas' ）;
+
+        如果 （！画布[ 0 ] 。的getContext ） {
+            $ （“ #error” ）。显示（）;
+            返回 false ;
+        }
+
+        var  width  =  canvas 。宽度（）;
+        var  height  =  canvas 。高度（）;
+
+        帆布。attr （“ width” ， width ）;
+        帆布。attr （“ height” ， height ）;
+
+        var  opts  =  {
+            种子：{
+                X：宽 / 2  -  20 ，
+                颜色：“ rgb（190，26，37）” ，
+                规模：2
+            } ，
+            分支机构：[
+                [ 535 ， 680 ， 570 ， 250 ， 500 ， 200 ， 30 ， 100 ， [
+                    [ 540 ， 500 ， 455 ， 417 ， 340 ， 400 ， 13 ， 100 ， [
+                        [ 450 ， 435 ， 434 ， 430 ， 394 ， 395 ， 2 ， 40 ]
+                    ] ] ，
+                    [ 550 ， 445 ， 600 ， 356 ， 680 ， 345 ， 12 ， 100 ， [
+                        [ 578 ， 400 ， 648 ， 409 ， 661 ， 426 ， 3 ， 80 ]
+                    ] ] ，
+                    [ 539 ， 281 ， 537 ， 248 ， 534 ， 217 ， 3 ， 40 ] ，
+                    [ 546 ， 397 ， 413 ， 247 ， 328 ， 244 ， 9 ， 80 ， [
+                        [ 427 ， 286 ， 383 ， 253 ， 371 ， 205 ， 2 ， 40 ] ，
+                        [ 498 ， 345 ， 435 ， 315 ， 395 ， 330 ， 4 ， 60 ]
+                    ] ] ，
+                    [ 546 ， 357 ， 608 ， 252 ， 678 ， 221 ， 6 ， 100 ， [
+                        [ 590 ， 293 ， 646 ， 277 ， 648 ， 271 ， 2 ， 80 ]
+                    ] ]
+                ] ]
+            ] ，
+            绽放：{
+                num：700 ，
+                宽度：1080 ，
+                高度：650 ，
+            } ，
+            页脚：{
+                宽度：1200 ，
+                高度：5 ，
+                速度：10 ，
+            }
+        }
+
+        VAR  树 =  新 树（画布[ 0 ] ， 宽度， 高度， OPTS ）;
+        var  seed  =  tree 。种子;
+        var  foot  =  tree 。页脚;
+        var  hold  =  1 ;
+
+        帆布。点击（功能 （e ） {
+            var  offset  =  canvas 。offset （）， x ， y ;
+            X  =  ë 。pageX属性 -  偏移。离开;
+            ý  =  ë 。pageY  -  偏移。顶;
+            如果 （种子。悬停（x ， y ）） {
+                保持 =  0 ;
+                帆布。解除绑定（“单击” ）；
+                帆布。解除绑定（“ mousemove” ）；
+                帆布。removeClass （'hand' ）;
+            }
+        } ）。mousemove （函数 （e ） {
+            var  offset  =  canvas 。offset （）， x ， y ;
+            X  =  ë 。pageX属性 -  偏移。离开;
+            ý  =  ë 。pageY  -  偏移。顶;
+            帆布。toggleClass （'手' ， 种子。悬停（X ， ÿ ））;
+        } ）;
+
+        VAR  seedAnimate  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            种子。画（）;
+            而 （按住） {
+                $的await （Jscex 。异步。睡眠（10 ））;
+            }
+            而 （种子。canScale （）） {
+                种子。规模（0.95 ）;
+                $的await （Jscex 。异步。睡眠（10 ））;
+            }
+            而 （种子。canMove （）） {
+                种子。移动（0 ， 2 ）;
+                脚。画（）;
+                $的await （Jscex 。异步。睡眠（10 ））;
+            }
+        } ））;
+
+        VAR  growAnimate  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            做 {
+                树。生长（）;
+                $的await （Jscex 。异步。睡眠（10 ））;
+            }  而 （树。可以扩大（））;
+        } ））;
+
+        VAR  flowAnimate  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            做 {
+                树。花（2 ）;
+                $的await （Jscex 。异步。睡眠（10 ））;
+            }  而 （树。canFlower （））;
+        } ））;
+
+        VAR  moveAnimate  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            树。快照（“P1” ， 240 ， 0 ， 610 ， 680 ）;
+            而 （树。移动（“P1” ， 500 ， 0 ）） {
+                脚。画（）;
+                $的await （Jscex 。异步。睡眠（10 ））;
+            }
+            脚。画（）;
+            树。快照（“P2” ， 500 ， 0 ， 610 ， 680 ）;
+
+            //会有闪烁不得意这样做，（＞﹏＜）
+            帆布。父母（）。CSS （“背景” ， “URL（”  +  树。toDataURL （'图像/ PNG' ） +  “）” ）;
+            帆布。css （“ background” ， “ #ffe” ）;
+            $的await （Jscex 。异步。睡眠（300 ））;
+            帆布。css （“背景” ， “无” ）；
+        } ））;
+
+        VAR  jumpAnimate  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            var  ctx  =  tree 。ctx ;
+            而 （true ） {
+                树。ctx 。clearRect （0 ， 0 ， 宽度， 高度）;
+                树。跳（）;
+                脚。画（）;
+                $的await （Jscex 。异步。睡眠（25 ））;
+            }
+        } ））;
+
+        VAR  textAnimate  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            VAR  一起 =  新 日期（配置。日期）;
+
+            $ （“ #code” ）。显示（）。打字机（）;
+            $ （“＃clock-box” ）。fadeIn （500 ）;
+            而 （true ） {
+                timeElapse （一起）;
+                $的await （Jscex 。异步。睡眠（1000 ））;
+            }
+        } ））;
+
+        VAR  runAsync  =  EVAL （Jscex 。编译（“异步” ， 函数 （） {
+            $ await （seedAnimate （））;
+            $ await （growAnimate （））;
+            $ await （flowAnimate （））;
+            $ await （moveAnimate （））;
+
+            textAnimate （）。开始（）;
+
+            $ await （jumpAnimate （））;
+        } ））;
+
+        runAsync （）。开始（）;
+    } ）（）;
+</ 脚本>
+
+
+</ body >
+</ html >
